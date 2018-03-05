@@ -34,6 +34,3 @@ class TestMaxAreaIsland(unittest.TestCase):
         result = Solution().max_area(input)
 
         self.assertEqual(result, 0)
-
-if __name__ == '__main__':
-    unittest.main()
