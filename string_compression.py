@@ -4,23 +4,19 @@ def compress(input):
     if not input:
         return input
 
-    modified_input = input.lower().replace(' ', '')
-    current = modified_input[0]
-    count = 1
+    modified = input.lower().replace(' ', '')
+    count = 0
     output = []
 
-    for index in range(1, len(modified_input) + 1):
+    for index in range(len(modified)):
+        count += 1
         if(
-            index == len(modified_input) or
-            modified_input[index] != current
+            index + 1 == len(modified) or
+            modified[index] != modified[index + 1]
         ):
-            output.append(current)
-            if count > 1:
-                output.append(str(count))
-            if index < len(modified_input):
-                current = modified_input[index]
-            count = 1
-        else:
-            count += 1
+            output.append(modified[index])
+            output.append(str(count))
+            count = 0
 
-    return ''.join(output)
+    compressed = ''.join(output)
+    return compressed if len(compressed) < len(modified) else modified
