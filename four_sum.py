@@ -15,5 +15,5 @@ def four_sum(A, B, C, D):
     for c in C:
         for d in D:
             if -c - d in sums:
-                counts += 1
+                counts += sums[-c-d]
     return counts
